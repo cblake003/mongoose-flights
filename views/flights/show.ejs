@@ -35,8 +35,8 @@
     <table>
       <thead>
         <tr>
-          <th>Airport</th>
           <th>Arrival</th>
+          <th>Airport</th>
         </tr>
       </thead>
       <tbody>
@@ -57,13 +57,13 @@
       <thead>
           <th>Seat</th>
           <th>Price</th>
-          <th>Flight</th>
         </thead>
         <tbody>
             <% tickets.forEach(function(t) { %>
+                <tr>
                 <td><%= t.seat %></td>
                 <td><%= t.price %></td>
-                <td><%= t.flight %></td>
+                </tr>
             <% }) %>
         </tbody>
     </table>

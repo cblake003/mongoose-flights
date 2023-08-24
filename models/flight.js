@@ -18,9 +18,10 @@ const flightSchema = new Schema({
     airport: {
         type: String,
         default: 'DEN',
-        enum: ['BTR', 'AUS', 'LAX']
+        enum: ['BTR', 'AUS', 'LAX', 'DEN']
     },
     flightNo: {
+        required: true,
         type: Number,
         min: 10,
         max: 9999
@@ -37,5 +38,14 @@ const flightSchema = new Schema({
 {
     timestamps: true
 });
+
+flightSchema.statics.getCreationData = function() {
+    const airport = this.schema.path('airport').enumValues
+    const airline = this.schema.path('airline').enumValues
+    return {
+        airport,
+        airline
+    }
+}
 
 module.exports = mongoose.model('Flight', flightSchema);

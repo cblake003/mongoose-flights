@@ -1,18 +1,13 @@
 <%- include('../partials/header') %>
 
-<h2>New Ticket</h2>
-<form id="ticket-form" action="/flights/<%= flight._id %>/destinations" method="POST">
-  <label>Seat
-      <input name="seat" required pattern="[A-F][1-9]\d?" title="Must be 'A1' - 'F99'""></input>
-  </label><br>
-  <label>Price:
-    <input type="number" name="price" min="0">
-  </input>
-  </label><br>
-  <label>Flight Number:
-    <input type="number" name="flightNo">
-  </label><br>
-  <button type="submit">Add New Ticket</button>
+<form method="POST" action="/flights/<%= flight._id %>/tickets">
+    <label>Seat</label>
+    <input name="seat" type="text">
+    <label>Price</label>
+    <input name="price" type="number" min="0">
+    <input type="hidden" value="<%= flight._id %>">
+    <button type="submit"submit></button>
 </form>
+
 
 <%- include('../partials/footer') %>
